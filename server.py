@@ -24,9 +24,12 @@ def emot_detector():
 
     # get the dominant emotion as a variable and remove it from the dictionary
     emotion = response["dominant_emotion"]
-    response.pop("dominant_emotion", None)
 
-    # drop the braces, replace the last "," with " and ", and construct the output sentence
+    if emotion is None:
+        return "Invalid text! Please try again!"
+
+    # Construct the output sentence
+    response.pop("dominant_emotion", None)
     scores = str(response).replace("{", "").replace("}", "")
     parts = scores.rsplit(", ", 1)
     scores = " and ".join(parts)
