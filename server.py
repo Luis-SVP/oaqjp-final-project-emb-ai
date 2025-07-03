@@ -33,7 +33,9 @@ def emot_detector():
     scores = str(response).replace("{", "").replace("}", "")
     parts = scores.rsplit(", ", 1)
     scores = " and ".join(parts)
-    output = f"For the given statement, the system response is {scores}. The dominant emotion is {emotion}."
+    output = (
+        f"For the given statement, the system response is {scores}. "
+        "The dominant emotion is {emotion}.")
 
     return output
 
